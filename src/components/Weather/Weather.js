@@ -16,8 +16,7 @@ function Weather() {
         "http://api.weatherapi.com/v1/current.json?key=304f394562c845ca894165801231404&q=INDIA&aqi=no"
       )
       .then((res) => setWeather(res.data.current));
-    console.log(weather);
-  }, [weather]);
+  }, []);
 
   useEffect(() => {
     const ddmmyyyy = new Date();
@@ -38,7 +37,7 @@ function Weather() {
     let tzone = hours >= 12 ? "PM" : "AM";
     hours = hours % 12 || 12;
     if (hours < 10) hours = `0${hours}`;
-    if(minutes < 10) minutes = `0${minutes}`;
+    if (minutes < 10) minutes = `0${minutes}`;
     const timeFormated = `${hours}:${minutes} ${tzone}`;
     setTime(timeFormated);
   }, [weather]);
@@ -86,7 +85,7 @@ function Weather() {
           </div>
         </div>
       ) : (
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -106,5 +105,3 @@ function Weather() {
 }
 
 export default Weather;
-
-
